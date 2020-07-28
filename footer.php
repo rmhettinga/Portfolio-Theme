@@ -76,6 +76,19 @@ $(window).scroll(function() {
 });
 </script>
 
+<!-- Javascript for preloader ------>
+<script>
+	$(document).ready(function() {
+	//Preloader
+	preloaderFadeOutTime = 1500;
+	function hidePreloader() {
+	var preloader = $('.spinner-wrapper');
+	preloader.fadeOut(preloaderFadeOutTime);
+	}
+	hidePreloader();
+	});
+</script>
+
 
 <?php wp_footer(); ?>
 

@@ -7,17 +7,17 @@ get_header();
 ?>
 <div class="">
 		<div class="full-img" data-scroll-speed="7"></div>
-		<div class="full-img2" data-scroll-speed="1"></div>
+		<!-- <div class="full-img2" data-scroll-speed="1"></div> -->
 		<!-- <div class="full-img2 full-img3" data-scroll-speed="4"></div> -->
 
 </div>
 <header class="header">
 	<nav class="primary-nav">
 		<ul class="menu">
-			<a href="#"><li>Profile</li></a>
-			<a href="#"><li>Resume</li></a>
-			<a href="#"><li>Portfolio</li></a>
-			<a href="#"><li>Contact</li></a>
+			<a href="#profile"><li>Profile</li></a>
+			<a href="#resume"><li>Resume</li></a>
+			<a href="#portfolio"><li>Portfolio</li></a>
+			<a href="#contact"><li>Contact</li></a>
 		</ul>
 	</nav>
 </header>
@@ -31,8 +31,7 @@ get_header();
 	</div><!-- title -->
 </section><!-- intro -->
 
-<div class="panel" data-color="red">
-</div>
+
 <section class="profile panel" id="profile" data-color="white">
 	<div class="wrapper">
 		<div class="title" data-aos="fade-up">
@@ -54,7 +53,7 @@ get_header();
 					<h3 data-aos="fade-up">creativity, functionality, simplicity, and coffee.</h3>
 					<h4 data-aos="fade-up">These are the key elements that help me work, explore, learn, grow, and wake up.</h4>
 					<div class="prof-btn" data-aos="fade-up">
-						<button class="peach">dowload resume</button>
+						<a href="https://rmhettinga.ca/wp-content/uploads/2020/07/RachelHettinga-resume.pdf" target="_blank"><button class="peach">dowload resume</button></a>
 					</div>
 			</div><!-- prof summary -->
 			<div class="prof-img-below">
@@ -77,7 +76,7 @@ get_header();
 	<div class="wrapper">
 		<div class="title resume-title" data-aos="fade-up">
 			<h2>Resume</h2>
-			<h5>I am a multidisciplinary designer and developer who is real, honest, friendly and actionable.</h5>
+			<h5>I am a multidisciplinary designer and developer who is real, honest, friendly and a self starter.</h5>
 		</div>
 
 		<div class="resume-content">
@@ -300,6 +299,7 @@ get_header();
 
 					<div class="xs-6 sm-4 lg-3">
 						<div class="mg-trigger img-responsive" style="background-image: url('<?php the_post_thumbnail_url(); ?>');"></div>
+						<h2 class="port-title"><?php the_title(); ?></h2>
 					</div>
 				<?php endwhile; else: ?> <p>Sorry, there are no portfolio items to display</p> <?php endif; ?>
 				<?php wp_reset_query(); ?>
@@ -324,18 +324,28 @@ get_header();
 							<div class="row row-flex">
 								<div class="port-item">
 									<div class="port-imgs">
-										<img src="<?php the_field('project_media'); ?>" />
-										<img src="<?php the_field('project_media_2'); ?>" />
-										<img src="<?php the_field('project_media_3'); ?>" />
-										<img src="<?php the_field('project_media_4'); ?>" />
+										<?php if( get_field('project_media') ): ?>
+											<img src="<?php the_field('project_media'); ?>" />
+										<?php endif; ?>
+										<?php if( get_field('project_media_2') ): ?>
+											<img src="<?php the_field('project_media_2'); ?>" />
+										<?php endif; ?>
+										<?php if( get_field('project_media_3') ): ?>
+											<img src="<?php the_field('project_media_3'); ?>" />
+										<?php endif; ?>
+										<?php if( get_field('project_media_4') ): ?>
+											<img src="<?php the_field('project_media_4'); ?>" />
+										<?php endif; ?>
 									</div>
 									<div class="port-desc">
 										<div class="sticky-sb">
 											<h2><?php the_title(); ?></h2>
 											<h3>Description</h3>
 											<?php the_field('description'); ?>
-											<h3>Details</h3>
-											<?php the_field('project_details'); ?>
+											<?php if( get_field('project_details') ): ?>
+												<h3>Details</h3>
+												<?php the_field('project_details'); ?>
+											<?php endif; ?>
 											<?php if( get_field('project_url') ): ?>
 												<a href="<?php the_field('project_url'); ?>" target="_blank"><button class="peach">Visit Site</button></a>
 											<?php endif; ?>
@@ -357,7 +367,7 @@ get_header();
 	<div class="wrapper">
 		<div class="title contact-title" data-aos="fade-up">
 			<h2>Contact</h2>
-			<p>I would love to hear from you! Please send me an email at <a href="mailto:rmhettinga@gmail.comme@mysite.com&&subject=Lets%Chat!&body=I-would-love-to-work-with-you!">rmhettinga@gmail.com</a> or give me a call at (204)809-5299. If you have any questions please do not hesitate to ask! Cheers!</p>
+			<p>I would love to hear from you! Please send me an email at <a href="mailto:rmhettinga@gmail.com">rmhettinga@gmail.com</a> or give me a call at +1 (204) 809-5299. If you have any questions please do not hesitate to ask! Cheers!</p>
 		</div>
 
 	</div>
